@@ -8,9 +8,12 @@
         <a class="navbar-brand" href="{% url 'vehiculo:index' %}">Inicio</a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav">
-
+                {% if perms.vehiculo.add_vehiculomodel %}
                 <li class="nav-item"><a class="nav-link" href="{% url 'vehiculo:add_vehiculo' %}">Agregar</a></li>
+                {% endif %}
+                {% if perms.vehiculo.visualizar_catalogo %}
                 <li class="nav-item"><a class="nav-link" href="{% url 'vehiculo:list_vehiculos' %}">Listar</a></li>
+                {% endif %}
             </ul>
             <div class="d-flex justify-content-end">
                 <ul class="navbar-nav">
